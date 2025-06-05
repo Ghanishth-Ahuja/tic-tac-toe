@@ -1,0 +1,70 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+#wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(./pexels-alscre-2847648.jpg);
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  place-items: center;
+}
+.button {
+  padding: 10px 35px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+#player {
+  padding: 10px 35px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.playing-area {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  font-size: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 90%;
+  max-width: 15rem;
+  cursor: pointer;
+  padding: 2rem;
+  aspect-ratio: 1/1;
+}
+.box-1,
+.box-2,
+.box-3,
+.box-4,
+.box-5,
+.box-6 {
+  border-bottom: 2px solid white;
+}
+.box-1,
+.box-2,
+.box-5,
+.box-4,
+.box-7,
+.box-8 {
+  border-right: 2px solid white;
+}
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+}
+
+.hidden {
+  visibility: hidden;
+}
+.won
+{
+  background-color: green;
+}
