@@ -43,12 +43,12 @@ function addToArray(value, index) {
   userandvalue = xory ? "x" : "0";
   buttons_clicked[userandvalue][index - 1] = index;
   value.textContent = userandvalue;
-  playerName.textContent = userandvalue;
+  playerName.textContent = ` ${userandvalue}`;
   xory = !xory;
   value.classList.add("clicked");
   let item = checkIfGameIsFinishedOrNot(userandvalue);
   if (item) {
-    playerName.textContent += "Won";
+    playerName.textContent += " Won";
     // console.log("Someone won");
     individual_boxes.forEach((item) => {
       item.removeEventListener("click", boxFunction);
