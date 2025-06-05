@@ -4,6 +4,9 @@
   margin: 0;
   padding: 0;
 }
+* {
+  -webkit-tap-highlight-color: transparent;
+}
 #wrapper {
   width: 100vw;
   height: 100vh;
@@ -64,7 +67,6 @@
 .hidden {
   visibility: hidden;
 }
-.won
-{
+.won {
   background-color: green;
 }
