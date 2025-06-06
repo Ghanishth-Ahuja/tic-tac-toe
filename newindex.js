@@ -13,16 +13,38 @@ let winninPositionsArray = [
   [0, 4, 8],
   [2, 4, 6],
 ];
+function emptyTheClickedDivArray() {
+  for (let i = 0; i < ClickedDivArray.length; i++) {
+    ClickedDivArray[i] = "";
+  }
+}
 initialiseGame();
 
+//removing pointerevent
+function removePointerEventFromAllDiv() {
+  allX0Divs.forEach((singlediv) => {
+    singlediv.style.pointerEvents = "none";
+  });
+}
+function addPointerEventToAllDiv() {
+  allX0Divs.forEach((singlediv) => {
+    singlediv.style.pointerEvents = "auto";
+  });
+}
 finishButton.addEventListener("click", initialiseGame);
 //initialising the game
 function initialiseGame() {
+  emptyTheClickedDivArray();
+  console.log(ClickedDivArray);
+
+  addPointerEventToAllDiv();
   finishButton.classList.add("hidden");
-  allX0Divs.forEach((divs) => {
+  allX0Divs.forEach((divs, number) => {
     divs.classList.remove("won"); // or divs.classList=`box box-${i}`
     divs.textContent = "";
+    console.log(divs.classList);
   });
+
   playerNameAndResultArea.textContent = "Current Player - X";
 }
 
@@ -34,6 +56,7 @@ function toggleCurrentPlayer() {
 }
 
 function addToClickedDivArray(divNumber) {
+  allX0Divs[divNumber].style.pointerEvents = "none";
   allX0Divs[divNumber].textContent = currentPlayer;
   ClickedDivArray[divNumber] = currentPlayer;
   toggleCurrentPlayer();
@@ -66,9 +89,8 @@ function checkIfTheGameIsOverOrNot() {
       allX0Divs[singleWinningPosition[1]].classList.add("won");
       allX0Divs[singleWinningPosition[2]].classList.add("won");
       finishButton.classList.remove("hidden");
-      allX0Divs.forEach((singlediv) => {
-        singlediv.style.pointerEvents = "none";
-      });
+      removePointerEventFromAllDiv();
+      emptyTheClickedDivArray();
     }
   }
   ClickedDivArray.forEach((player) => {
@@ -77,6 +99,8 @@ function checkIfTheGameIsOverOrNot() {
   if (positionsFilled === 9) {
     playerNameAndResultArea.textContent = "Game Tied";
     finishButton.classList.remove("hidden");
+    removePointerEventFromAllDiv();
+    emptyTheClickedDivArray();
   }
   // else console.log("Abhi koi ni jeeta, khelte ro");
 }
